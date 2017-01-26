@@ -1,29 +1,18 @@
 # -*- coding: utf-8 -*-
 
-from models import Customer
-from models import Base
-from sqlalchemy import create_engine
-from sqlalchemy import MetaData
-from sqlalchemy.orm import sessionmaker
+from decouple import config
+from etl.extract import ExtractInput
+from etl.transform import TransformInput
+from etl.load import LoadToPostgres
+
+path_to_input = config('TABELADADOS')
 
 
-def connect(user, password, db, host='localhost', port=5432, create_tables= True):
-    # We connect with the help of the PostgreSQL URL
-    # postgresql://federer:grandestslam@localhost:5432/tennis
-    url = 'postgresql://{}:{}@{}:{}/{}'
-    url = url.format(user, password, host, port, db)
-
-    con = create_engine(url, client_encoding='utf8')
-
-    meta = MetaData(bind=con, reflect=True)
-
-    if create_tables:
-        Base.metadata.create_all(con)
-
-    return con, meta
-
-con, meta = connect('postgres', '', 'alembic_example')
-
-session = sessionmaker()
-session.configure(bind=con)
-s = session()
+if __name__ == '__main__':
+    extract = ExtractInput(path_to_input=path_to_input).run()
+    print('extracao finalizada!')
+    transform = TransformInput(extract=extract).run()
+    print('transformacao finalizada!')
+    to_postgres = LoadToPostgres(rows=transform).run()
+    print('carregamento finalizado!')
+    print('ETL finalizado!')
