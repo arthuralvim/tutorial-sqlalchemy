@@ -19,6 +19,8 @@ class Input(Base):
     texto = Column(String, nullable=True)
     numero = Column(Integer, nullable=True)
     data = Column(DateTime, nullable=True)
+    data_avancada = Column(DateTime, nullable=True)
+    data_texto = Column(String, nullable=True)
 
     def __repr__(self):
         return "<Input('%s','%s', '%s')>" % (self.texto, self.numero,
@@ -28,3 +30,5 @@ class Input(Base):
         self.texto = row.texto
         self.numero = row.numero
         self.data = row.data
+        self.data_avancada = row.data_avancada
+        self.data_texto = row.data_texto
