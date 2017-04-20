@@ -14,12 +14,13 @@ before_install:
 
 install:
   - make requirements
+  - pip install --upgrade pytest
 
 before_script:
   - psql -c "CREATE DATABASE tutorialsqlalchemy;" -U postgres
 
 script:
-  - make test
+  - py.test -s --basetemp=tests/media --disable-pytest-warnings
 
 after_success:
   coveralls
