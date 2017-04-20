@@ -20,7 +20,7 @@ before_script:
   - psql -c "CREATE DATABASE tutorialsqlalchemy;" -U postgres
 
 script:
-  - py.test -s --basetemp=tests/media --disable-pytest-warnings
+  - py.test -s --cov --basetemp=tests/media --disable-pytest-warnings
 
 after_success:
   coveralls
