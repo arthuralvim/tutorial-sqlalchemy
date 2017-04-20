@@ -1,14 +1,16 @@
 # tutorial-sqlalchemy
 
-```bash
-$ pip install -r requirements.txt
-```
+[![Coverage Status](https://coveralls.io/repos/github/arthuralvim/tutorial-sqlalchemy/badge.svg?branch=master)](https://coveralls.io/github/arthuralvim/tutorial-sqlalchemy?branch=master)
+
+[![Build Status](https://travis-ci.org/arthuralvim/tutorial-sqlalchemy.svg?branch=master)](https://travis-ci.org/arthuralvim/tutorial-sqlalchemy)
+
+### DEPENDÊNCIAS
 
 ```bash
-$ python run.py
+$ make requirements
 ```
 
-### configurar Alembic
+### ALEMBIC
 
 
 ```bash
@@ -44,5 +46,30 @@ $ alembic revision --autogenerate -m "Added account table"
 ```
 
 
-### criar script de migração
+### PEP8
 
+```bash
+$ make pep8
+```
+
+### TESTES
+
+```bash
+$ make test
+```
+
+```bash
+$ make testx
+```
+
+```bash
+$ make test.collect
+```
+
+```bash
+$ make coverage
+```
+
+```bash
+$ make coverage.html
+```

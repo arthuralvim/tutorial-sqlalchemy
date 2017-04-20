@@ -1,6 +1,9 @@
 alembic==0.8.9
-Mako==1.0.6
-MarkupSafe==0.23
+coverage==4.1
+psycopg2==2.6.2
+pytest-cov==2.2.1
+pytest-mock==1.1
+pytest-sugar==0.7.1
 python-decouple==3.0
-python-editor==1.0.3
-SQLAlchemy==1.1.4
+SQLAlchemy==1.1.5
+coveralls==1.1

@@ -11,9 +11,9 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 
-class Input(Base):
+class Exemplo(Base):
 
-    __tablename__ = 'input'
+    __tablename__ = 'exemplo'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     texto = Column(String, nullable=True)
