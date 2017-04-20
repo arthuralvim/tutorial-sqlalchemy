@@ -8,6 +8,7 @@ python:
 services: postgresql
 
 install:
+  - pip install pep8 --use-mirrors
   - make requirements
 
 before_script:
