@@ -53,4 +53,4 @@ coverage-html: check.test_path
 	@py.test -s $(TEST_PATH) --cov --cov-report=html --basetemp=tests/media --disable-pytest-warnings
 
 pep8:
-	@pep8 --filename="*.py" --ignore=W --first --show-source --statistics --count .
+	@pep8 --filename="*.py" --exclude="alembic" --ignore=W --first --show-source --show-pep8 --statistics --count .

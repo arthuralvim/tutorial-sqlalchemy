@@ -21,6 +21,7 @@ class Exemplo(Base):
     data = Column(DateTime, nullable=True)
     data_avancada = Column(DateTime, nullable=True)
     data_texto = Column(String, nullable=True)
+    condicao = Column(Boolean, nullable=True)
 
     def __repr__(self):
         return "<Input('%s','%s', '%s')>" % (self.texto, self.numero,

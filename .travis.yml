@@ -7,12 +7,15 @@ python:
 
 services: postgresql
 
+before_install:
+  - pip install --upgrade pip
+  - pip install pep8
+  - make pep8
+
 install:
-  - pip install pep8 --use-mirrors
   - make requirements
 
 before_script:
-  - make pep8
   - psql -c "CREATE DATABASE tutorialsqlalchemy;" -U postgres
 
 script:
