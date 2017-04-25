@@ -11,7 +11,7 @@ all: help
 help:
 	@echo 'Makefile *** tutorial-sqlalchemy *** Makefile'
 
-clean: clean-build clean-others clean-pyc clean-test run validate requirements test coverage coverage.html pep8
+clean: clean-build clean-others clean-pyc clean-test
 
 clean-build:
 	@rm -fr build/
@@ -42,6 +42,9 @@ test: check.test_path
 
 testx: check.test_path
 	@py.test -s -x $(TEST_PATH) --basetemp=tests/media --disable-pytest-warnings
+
+pytest-fixtures: check.test_path
+	@py.test --fixtures $(TEST_PATH) --basetemp=tests/media --disable-pytest-warnings
 
 test-collect: check.test_path
 	@py.test -s $(TEST_PATH) --basetemp=tests/media --collect-only --disable-pytest-warnings

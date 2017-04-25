@@ -7,3 +7,4 @@ pytest-sugar==0.7.1
 python-decouple==3.0
 SQLAlchemy==1.1.5
 coveralls==1.1
+Unipath==1.1
