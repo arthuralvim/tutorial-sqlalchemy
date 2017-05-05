@@ -7,6 +7,9 @@ python:
 
 services: postgresql
 
+env:
+  - POSTGRESQL_DATABASE_URI=postgres://postgres@localhost:5432/tutorialsqlalchemy
+
 before_install:
   - pip install --upgrade pip
   - pip install pep8

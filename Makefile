@@ -52,6 +52,9 @@ test-collect: check.test_path
 coverage: check.test_path
 	@py.test -s $(TEST_PATH) --cov --basetemp=tests/media --disable-pytest-warnings
 
+coverage.missing: check.test_path
+	@py.test -s $(TEST_PATH) --cov --cov-report term-missing --basetemp=tests/media --disable-pytest-warnings
+
 coverage-html: check.test_path
 	@py.test -s $(TEST_PATH) --cov --cov-report=html --basetemp=tests/media --disable-pytest-warnings
 

@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 
+from .base import Base
+from .base import BaseModel
 from datetime import datetime
 from sqlalchemy import Boolean
 from sqlalchemy import Column
 from sqlalchemy import DateTime
 from sqlalchemy import Integer
 from sqlalchemy import String
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
 
 
-class Exemplo(Base):
+class Exemplo(BaseModel, Base):
 
     __tablename__ = 'exemplo'
 
@@ -24,12 +23,16 @@ class Exemplo(Base):
     condicao = Column(Boolean, nullable=True)
 
     def __repr__(self):
-        return "<Input('%s','%s', '%s')>" % (self.texto, self.numero,
-                                             self.data)
+        return "<Exemplo('%s','%s', '%s')>" % (self.texto, self.numero,
+                                               self.data)
 
-    def __init__(self, row):
-        self.texto = row.texto
-        self.numero = row.numero
-        self.data = row.data
-        self.data_avancada = row.data_avancada
-        self.data_texto = row.data_texto
+    @classmethod
+    def random_instance(cls):
+        kl = cls()
+        kl.texto = 'TEXTO'
+        kl.numero = 10
+        kl.data = datetime.utcnow()
+        kl.data_avancada = datetime.utcnow()
+        kl.data_texto = kl.data.isoformat()
+        kl.condicao = True
+        return kl
